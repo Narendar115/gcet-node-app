@@ -12,9 +12,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+//TESTING
 const DBUSER = encodeURIComponent(process.env.DBUSER)
 const DBPASS = encodeURIComponent(process.env.DBPASS)
-const MONGODB_URI =`mongodb+srv://${DBUSER}:${DBPASS}@cluster0.qjxhv.mongodb.net/gcet?retryWrites=true&w=majority&appName=Cluste`
+const MONGODB_URI =`mongodb+srv://${DBUSER}:${DBPASS}@cluster0.n4jgmhi.mongodb.net/gcet?retryWrites=true&w=majority&appName=Cluster0`
 
 // const MONGODB_URI = process.env.MONGODB_URI;
 
