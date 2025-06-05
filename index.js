@@ -15,7 +15,7 @@ app.use(express.json());
 //TESTING
 const DBUSER = encodeURIComponent(process.env.DBUSER)
 const DBPASS = encodeURIComponent(process.env.DBPASS)
-const MONGODB_URI =`mongodb+srv://${DBUSER}:${DBPASS}@cluster0.n4jgmhi.mongodb.net/gcet?retryWrites=true&w=majority&appName=Cluster0`
+const MONGO_URI =`mongodb+srv://${DBUSER}:${DBPASS}@cluster0.n4jgmhi.mongodb.net/gcet?retryWrites=true&w=majority&appName=Cluster0`
 
 // const MONGODB_URI = process.env.MONGODB_URI;
 
@@ -23,7 +23,13 @@ app.use("/users", userRouter);
 app.use("/products", productRouter);
 app.use("/orders",orderRouter)
 
-app.listen(8080, () => {
-  mongoose.connect(`${MONGODB_URI}`);
-  console.log("Server Started");
-});
+mongoose
+  .connect(MONGO_URI)
+  .then(() => {
+    app.listen(8080, () => {
+      console.log("Server Started on port 8080");
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+  });
