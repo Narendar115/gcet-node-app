@@ -28,4 +28,4 @@ userRouter.get("/:id/name", async (req,res) => {
     return res.json(result);
 })
 
-export default userRouter
+export default userRouter;
