@@ -21,4 +21,4 @@ orderRouter.get("/all", async (req, res) => {
   return res.json(result);
 });
 
-export default orderRouter;
+export default orderRouter
